@@ -46,69 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // 3. Contact Form Handling
+    // 3. Contact Form — loading state before FormSubmit.co POST
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: contactForm.querySelector('input[name="name"]').value,
-                email: contactForm.querySelector('input[name="email"]').value,
-                company: contactForm.querySelector('input[name="company"]').value,
-                service: contactForm.querySelector('select[name="service"]').value,
-                message: contactForm.querySelector('textarea[name="message"]').value,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Get submit button
+        contactForm.addEventListener('submit', (e) => {
             const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            try {
-                // Update button state
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
-                submitBtn.classList.add('opacity-50');
-                
-                // Try to send via FormSubmit (free service) - no backend needed
-                const response = await fetch('https://formspree.io/f/xyzqwert', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                }).catch(() => {
-                    // If no internet or service unavailable, still show success
-                    // (for demo purposes)
-                    return { ok: true };
-                });
-                
-                // Show success message
-                submitBtn.textContent = '✓ Message Sent!';
-                submitBtn.classList.add('!bg-emerald-600');
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
-                    submitBtn.classList.remove('opacity-50', '!bg-emerald-600');
-                }, 3000);
-                
-                // Show alert
-                alert('Thank you! I\'ll get back to you within 24 hours.');
-                
-            } catch (error) {
-                console.error('Error:', error);
-                submitBtn.textContent = 'Error - Try Again';
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('opacity-50');
-            }
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.classList.add('opacity-70');
+            // Form will POST natively to FormSubmit.co and redirect
         });
+    }
+    
+    // Show success toast if redirected back after submission
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('sent') === '1') {
+        const toast = document.createElement('div');
+        toast.textContent = '✓ Message sent! I\'ll reply within 24 hours.';
+        toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-500 text-white font-bold px-8 py-4 rounded-full shadow-2xl z-50 text-sm';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 5000);
+        // Clean URL
+        history.replaceState({}, '', window.location.pathname);
     }
     
     // 4. Add scroll animation for sections
