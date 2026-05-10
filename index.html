@@ -13,9 +13,10 @@
     <meta property="og:description" content="Premium digital solutions for growth-focused businesses">
     <meta property="og:type" content="website">
     <meta name="google-site-verification" content="8m9N12pUV1OaCKsECfJP6Ac89FoBfuZI6F8xNXe3QbY" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS (local build) -->
+    <link rel="stylesheet" href="tailwind.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
@@ -241,7 +242,7 @@
             <!-- Project 2 -->
             <div class="group portfolio-item rounded-xl overflow-hidden glass border border-white/10 hover:border-emerald-500/50">
                 <div class="relative h-56 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdf91c9c531?w=500&h=300&fit=crop" alt="Marketing Dashboard" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop" alt="Marketing Dashboard" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition duration-300"></div>
                 </div>
                 <div class="p-6">
@@ -523,18 +524,29 @@
                 <h3 class="font-bold mb-4">Connect</h3>
                 <ul class="space-y-2 text-sm text-slate-400">
                     <li><a href="https://linkedin.com/in/ambeshi-serge-5b62711aa" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">LinkedIn</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Twitter</a></li>
+                    <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">Twitter</a></li>
                     <li><a href="https://github.com/sergeambeshi-bit" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">GitHub</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Instagram</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">Instagram</a></li>
                 </ul>
             </div>
+        </div>
+
+        <div class="border-t border-white/5 pt-8 mt-8 space-y-4 text-sm text-slate-400">
+            <section id="privacy-policy">
+                <h3 class="text-white font-bold mb-2">Privacy Policy</h3>
+                <p>We only use contact form submissions to respond to your inquiry. We do not sell personal data, and we retain messages only as needed for client communication.</p>
+            </section>
+            <section id="terms-of-service">
+                <h3 class="text-white font-bold mb-2">Terms of Service</h3>
+                <p>Project timelines, deliverables, and payments are finalized in signed agreements. Website content is provided as-is and may be updated without prior notice.</p>
+            </section>
         </div>
         
         <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p class="text-sm text-slate-500">&copy; 2025 AMBESHI. All rights reserved.</p>
             <div class="flex space-x-6 mt-4 md:mt-0 text-sm text-slate-500">
-                <a href="#" class="hover:text-emerald-400 transition">Privacy Policy</a>
-                <a href="#" class="hover:text-emerald-400 transition">Terms of Service</a>
+                <a href="#privacy-policy" class="hover:text-emerald-400 transition">Privacy Policy</a>
+                <a href="#terms-of-service" class="hover:text-emerald-400 transition">Terms of Service</a>
             </div>
         </div>
     </div>
