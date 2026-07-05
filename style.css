@@ -1,9 +1,147 @@
 /* Custom CSS for AMBESHI Portfolio */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0F172A 0%, #1a2847 50%, #0F172A 100%);
+    color: white;
+}
+
 .glass-nav {
     background: rgba(11, 17, 32, 0.8);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.gradient-brand {
+    background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.service-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-card:hover {
+    transform: translateY(-12px);
+    border-color: #10B981;
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
+}
+
+.portfolio-item {
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.08);
+}
+
+.portfolio-item:hover {
+    box-shadow: 0 25px 50px rgba(16, 185, 129, 0.15);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+/* Skip link - hidden until keyboard focus */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border-radius: 6px;
+    z-index: 9999;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu {
+    transition: all 0.3s ease;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .mobile-menu {
+        transform: translateX(-100%);
+    }
 }
 
 .hero-glow {
@@ -61,8 +199,4 @@
     0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7); }
     70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(168, 85, 247, 0); }
     100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
-}
-
-html {
-    scroll-behavior: smooth;
 }
